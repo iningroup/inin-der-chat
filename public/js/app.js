@@ -78,13 +78,12 @@ $(function() {
 
     socket.on('login_result', function(data) {
       if (data.success) {
-        profile = data.result;
+        profile = data.result.profile;
+        users = data.result.users;
         loggedIn = true;
         renderApp();
-        $.get('/users').then(function(data) {
-          users = data;
-          renderUsers();
-        });
+        renderUsers();
+
         socket.emit('channels', [profile.location]);
       }
     });
