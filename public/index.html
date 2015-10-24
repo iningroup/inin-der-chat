@@ -3,11 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>InInDer Chat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 
+  <div class="container-fluid">
+    <div class="row block--login">
+      <div class="col-xs-4 col-xs-offset-4">
+        <h2>進入聊天室</h2>
+        <div class="form-group">
+          <label>暱稱 *</label>
+          <input class="form-control" name="name" type="text">
+        </div>
+        <div class="form-group">
+          <label>身高</label>
+          <select class="form-control" name="height"></select>
+        </div>
+        <div class="form-group">
+          <label>體重</label>
+          <select class="form-control" name="weight"></select>
+        </div>
+        <div class="form-group">
+          <label>年齡</label>
+          <select class="form-control" name="age"></select>
+        </div>
+        <div class="form-group">
+          <label>地區 *</label>
+          <select class="form-control" name="location"></select>
+        </div>
+        <button class="btn btn-primary btn-block btn--login">進入</button>
+      </div>
+    </div>
 
+    <div class="row block--chat" style="display: none;">
+      <div class="col-xs-6">
+        <form class="form-group form--message">
+          <label class="block--target">告訴所有人</label>
+          <button type="button" class="btn btn--clear-target">清除對象</button>
+          <input type="text" class="form-control" name="message" placeholder="說說話吧">
+          <button type="submit" class="btn">送出</button>
+        </form>
+
+        <div class="block--messages">
+
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <h2>頻道</h2>
+        <div class="block--channels">
+
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <button class="btn btn-block btn--logout">離開聊天</button>
+
+        <h2>聊天成員</h2>
+        <div class="block--users">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <!-- This file is provided by server, not in static folder -->
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/app.js"></script>
