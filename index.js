@@ -15,13 +15,18 @@ app.use(router.allowedMethods());
 server = http.createServer(app.callback());
 io = socket(server);
 
-
 // Main logic start
 router.get('/locations', function* (next) {
   this.type = 'json';
   this.body = chatroom.locations;
 });
 
+router.get('/users', function* (next) {
+  this.type = 'json';
+  this.body = chatroom.users.all();
+});
+
+chatroom.listen(io);
 
 // Start the server
 server.listen(port);
