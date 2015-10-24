@@ -37,34 +37,41 @@ Fetch all current users. Parameter `user_id` in other api should be a valid `id`
 
 ### Login
 The user must login before using other api.
+Parameter `location` must be a valid `id` from `/locations` api.
 
 **Event** `login`
 
 **Parameter** `Object{name:String, height:Number?, weight:Number?, age:Number?, location:String}`
 
-**Response Event** `login_result`
+**Response Client Event** `login_result`
+
+**Broadcast Client Event** `user_enter`
 
 
 ### Update profile (includes location)
 
 Update the user data.
+Parameter `location` must be a valid `id` from `/locations` api.
 
 **Event** `profile`
 
 **Parameter** `Object{name:String?, height:Number?, weight:Number?, age:Number?, location:String?}`
 
-**Response Event** `profile_result`
+**Response Client Event** `profile_result`
+
+**Broadcast Client Event** `user_profile`
 
 
 ### Set interested location channels
 
 Set the location channels for receiving public messages.
+Parameter must be an array of valid `id` from `/locations` api.
 
 **Event** `channels`
 
 **Parameter** `Array[String]`
 
-**Response Event** `channels_result`
+**Response Client Event** `channels_result`
 
 
 ### Send public messages
@@ -75,19 +82,23 @@ Send public messages to the location channel.
 
 **Parameter** `Object{message:String}`
 
-**Response Event** `public_message_result`
+**Response Client Event** `public_message_result`
+
+**Broadcast Client Event** `public_message`
 
 
 ### Send private messages
 
 Send private messages to a specific user.
+Parameter `user_id` must be a valid `id` from `/users` api.
 
 **Event** `private_message`
 
 **Parameter** `Object{user_id:String, message:String}`
 
-**Response Event** `private_message_result`
+**Response Client Event** `private_message_result`
 
+**Broadcast Client Event** `private_message`
 
 
 ## Client Socket Events
@@ -167,7 +178,7 @@ A user updates profile.
 
 ### Receive public message
 
-A user sends public message. `user_id` is the sender id.
+A user sends public message to a subscribed channel . `user_id` is the sender id.
 
 **Event** `public_message`
 
