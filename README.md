@@ -109,7 +109,7 @@ Parameter `user_id` must be a valid `id` from `/users` api.
 
 **Event** `login_result`
 
-**Parameter** `Object{success:Bool, result:UserDataObject}`
+**Parameter** `Object{success:Bool, result:Object{profile:UserDataObject, users:Object[id:String => data:UserDataObject]}`
 
 
 ### Result: Update profile (includes location)
